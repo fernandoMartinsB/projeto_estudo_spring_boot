@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.fernandobarbosa.domain.Categoria;
+import com.fernandobarbosa.dto.CategoriaDTO;
 import com.fernandobarbosa.repositories.CategoriaRepository;
 import com.fernandobarbosa.services.exceptions.DataIntegritException;
 import com.fernandobarbosa.services.exceptions.ObjectNotFoundException;
@@ -54,6 +55,10 @@ public class CategoriaService {
 		}catch(DataIntegrityViolationException ex) {
 			throw new DataIntegritException("Não é possível excliur uma categoria que possui produtos");
 		}
+	}
+	
+	public Categoria fromDTO(CategoriaDTO dto) {
+		return new Categoria(dto.getId(), dto.getNome());
 	}
 
 }

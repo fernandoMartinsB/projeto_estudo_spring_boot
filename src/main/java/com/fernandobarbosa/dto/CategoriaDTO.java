@@ -2,19 +2,26 @@ package com.fernandobarbosa.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.fernandobarbosa.domain.Categoria;
 
-public class CategoriaDTO implements Serializable{
+public class CategoriaDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer id;
+
+	@NotEmpty(message = "O nome não pode é de preenchimento obrigatório")
+	@Length(min = 5, max = 80, message = "O nome deve conter entre 5 e 80 digitos")
 	private String nome;
-	
+
 	public CategoriaDTO() {
-		
+
 	}
-	
+
 	public CategoriaDTO(Categoria categoria) {
 		this.id = categoria.getId();
 		this.nome = categoria.getNome();
@@ -35,5 +42,5 @@ public class CategoriaDTO implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 }
