@@ -210,5 +210,4 @@ public class ProjetoEstudoSpringBootApplication implements CommandLineRunner {
 		itemPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3));
 		
 	}
-
 }
