@@ -1,20 +1,43 @@
 package com.fernandobarbosa.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.fernandobarbosa.services.valdation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO {
 	
+	@NotEmpty(message = "o nome é de preenchimento obrigatório")
+	@Length(min = 5, message = "O nome deve ter no minimo 5 caracteres")
 	private String nome;
+	
+	@NotEmpty(message = "email é de preenchimento obrigatório")
+	@Email(message = "o email deve ser válido")
 	private String email;
+	
+	@NotEmpty(message = "cpfOuCnpj é de preenchimento obrigatório")
 	private String cpfOuCnpj;
+	
 	private Integer tipo;
 	
+	@NotEmpty(message = "logradouro é de preenchimento obrigatório")
 	private String logradouro;
+	
 	private String numero;
+	
 	private String complemento;
+	
 	private String bairro;
+	
 	private String cep;
 	
 	private String telefone1;
+	
 	private String telefone2;
+	
 	private String telefone3;
 	
 	private String cidadeId;
