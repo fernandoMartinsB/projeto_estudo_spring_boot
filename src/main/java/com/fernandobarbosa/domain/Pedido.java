@@ -115,6 +115,10 @@ public class Pedido implements Serializable{
 	public void setItens(Set<ItemPedido> itens) {
 		this.itens = itens;
 	}
+	
+	public Double getTotal() {
+		return itens.stream().mapToDouble((x) -> x.getSubtotal()).sum();
+	}
 
 	@Override
 	public String toString() {
